@@ -82,12 +82,12 @@
 						getTileUrl: function(coord, zoom) {
 							var normalizedCoord = getNormalizedCoord(coord, zoom);
 							if(normalizedCoord && (normalizedCoord.x < Math.pow(2, zoom)) && (normalizedCoord.x > -1) && (normalizedCoord.y < Math.pow(2, zoom)) && (normalizedCoord.y > -1)) {
-								return zoom + '_' + normalizedCoord.x + '_' + normalizedCoord.y + '.jpg';
+								return zoom + '/' + normalizedCoord.x + '/' + normalizedCoord.y + '.jpg';
 							} else {
 								return 'empty.jpg';
 							}
 						},
-						tileSize: new google.maps.Size(512, 512),
+						tileSize: new google.maps.Size(256, 256),
 						maxZoom: 5,
 						name: 'PS_Bramus.GoogleMapsTileCutter'
 					});
@@ -97,7 +97,7 @@
 						center: new google.maps.LatLng(0, 0),
 						zoom: 2,
 						minZoom: 0,
-						streetViewControl: true,
+						streetViewControl: false,
 						mapTypeControl: false,
 						mapTypeControlOptions: {
 							mapTypeIds: ["custom"]

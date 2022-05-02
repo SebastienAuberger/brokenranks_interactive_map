@@ -13,14 +13,21 @@
     <script>
         var map = L.map('map', {
     center: [0, 0],
-    zoom: 1,
-    zoomSnap: 1
+    zoom: 5,
+    zoomDelta: 1,
+    maxZoom: 5,
+    minZoom: 3,
+    worldCopyJump: true
 });
-        L.tileLayer('tiles/{z}_{x}_{y}.jpg').addTo(map);
-        marker = L.marker([-20, 50]).addTo(map);
+        var corner1 = L.latLng(91,-179),
+        corner2 = L.latLng(-91,179),
+        bounds = L.latLngBounds(corner2, corner1);
+        map.setMaxBounds(bounds);
+        L.tileLayer('tiles/{z}/{x}/{y}.jpg',{
+            noWrap: true
+        }).addTo(map);
+        marker = L.marker([-92, 180]).addTo(map);
+        marker2 = L.marker([92, -180]).addTo(map);
         marker.bindPopup("<h1>BOSS: NOM</h1><hr><p>Agrou agrou, je suis le méchant</p>")
-
-        var latlngs = [[0, -109.05],[41, -109.03],[41, -102.05]];
-        var polygon = L.polygon(latlngs, {color: 'yellow'}).addTo(map);
     </script>
 </body>
