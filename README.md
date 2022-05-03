@@ -3,6 +3,6 @@
 Ceci est une carte interactive pour le jeu BrokenRanks, actuellement en cours de développement, elle utilise la librairie JS Leaflet .
 
 ## TODO
-[ ] - Use Typescript
-[ ] - Add tests
-[ ] - Create Admin portal with databases (add points/zone...)
+- [ ] Use Typescript
+- [ ] Add tests
+- [ ] Create Admin portal with databases (add points/zone...)
