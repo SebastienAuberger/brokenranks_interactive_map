@@ -5,29 +5,11 @@
     <link rel="stylesheet" href="leaflet/leaflet.css"/>
     <link rel="stylesheet" href="css/style.css">
     <script src="leaflet/leaflet.js"></script>
+    <script src="scripts/brmap.class.js"></script>
 </head>
 <body>
     <div id="map">
 
     </div>
-    <script>
-        var map = L.map('map', {
-    center: [0, 0],
-    zoom: 5,
-    zoomDelta: 1,
-    maxZoom: 5,
-    minZoom: 3,
-    worldCopyJump: true
-});
-        var corner1 = L.latLng(91,-179),
-        corner2 = L.latLng(-91,179),
-        bounds = L.latLngBounds(corner2, corner1);
-        map.setMaxBounds(bounds);
-        L.tileLayer('tiles/{z}/{x}/{y}.jpg',{
-            noWrap: true
-        }).addTo(map);
-        marker = L.marker([-92, 180]).addTo(map);
-        marker2 = L.marker([92, -180]).addTo(map);
-        marker.bindPopup("<h1>BOSS: NOM</h1><hr><p>Agrou agrou, je suis le méchant</p>")
-    </script>
+    <script src="scripts/main.js"></script>
 </body>
