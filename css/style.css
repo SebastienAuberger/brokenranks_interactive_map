@@ -29,7 +29,7 @@ html, body{
 }
 
 #hide-button{
-    background-color: aliceblue;
+    background-color: rgb(182, 8, 46);
     width: fit-content;
     position: relative;
     float: right;
