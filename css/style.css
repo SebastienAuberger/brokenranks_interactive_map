@@ -32,6 +32,7 @@ html, body{
     background-color: rgb(182, 8, 46);
     width: fit-content;
     position: relative;
+    z-index: 1100;
     float: right;
     padding: 10px;
     cursor: pointer;
