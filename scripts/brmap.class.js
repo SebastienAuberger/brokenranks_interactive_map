@@ -10,7 +10,8 @@ class BRMap {
         zoomDelta: 1,
         maxZoom: 5,
         minZoom: 3,
-        worldCopyJump: true
+        worldCopyJump: true,
+        zoomControl: false
         });
         var corner1 = L.latLng(91,-179),
         corner2 = L.latLng(-91,179),
