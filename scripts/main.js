@@ -1,11 +1,14 @@
 var map = new BRMap();
-map.initMap();
+//map.initMap();
 
 var hideButton = document.getElementById('hide-button');
 var filterMenu = document.getElementById('filter-menu');
 var MapContainer = document.getElementById('map');
+var ContextMenu = document.getElementById('ContextMenu');
 var hideButtonSize = hideButton.offsetWidth
 var toggleHideButton = true;
+var mouseX = 0;
+var mouseY = 0;
 hideButton.addEventListener('click',() => {
     if(toggleHideButton)
     {
@@ -20,7 +23,38 @@ hideButton.addEventListener('click',() => {
         filterMenu.style.width = '10%';
         MapContainer.style.width = '90%';
         hideButton.style.left = '0px';
-        hideButton.innerHTML = "<<";
+        hideButton.innerHTML = " X";
         toggleHideButton = true;
     }
 })
+
+map.addMarker(25,0);
+map.addMarker(20,0);
+map.addMarker(15,0);
+map.addMarker(10,0);
+map.addMarker(5,0);
+map.addMarker(15,5);
+map.addMarker(15,10);
+map.addMarker(15,-5);
+map.addMarker(15,-10);
+map.displayMarkers();
+map.addMarkerPopup(2,`
+    <h1>test</h1><hr>
+    <p>Bonjour</p>
+`);
+
+/* INTERACTIVE MENU TO ADD MARKER (IMPLEMENTATION LATER)
+
+MapContainer.addEventListener('mousemove', (event) =>{
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    console.log('POS: X = ' + mouseX + ' Y = ' + mouseY);
+})
+
+MapContainer.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    ContextMenu.style.left = mouseX + 'px';
+    ContextMenu.style.top = mouseY + 'px';
+    ContextMenu.style.visibility = 'visible';
+})
+*/
