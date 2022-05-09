@@ -11,9 +11,9 @@ class BRMap {
             worldCopyJump: true,
             zoomControl: false
             });
-            var corner1 = L.latLng(91,-179),
-            corner2 = L.latLng(-91,179),
-            //bounds = L.latLngBounds(corner2, corner1);
+            //var corner1 = L.latLng(91,-179);
+            //var corner2 = L.latLng(-91,179);
+            //var bounds = L.latLngBounds(corner2, corner1);
             //map.setMaxBounds(bounds);
             L.tileLayer('tiles/{z}/{x}/{y}.jpg',{
              noWrap: true
