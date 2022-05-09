@@ -13,7 +13,7 @@ class BRMap {
             });
             var corner1 = L.latLng(91,-179),
             corner2 = L.latLng(-91,179),
-            bounds = L.latLngBounds(corner2, corner1);
+            //bounds = L.latLngBounds(corner2, corner1);
             //map.setMaxBounds(bounds);
             L.tileLayer('tiles/{z}/{x}/{y}.jpg',{
              noWrap: true
