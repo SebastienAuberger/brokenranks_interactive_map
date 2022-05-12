@@ -6,3 +6,7 @@ function mapView(){
     include("view/mapView.php");
     include("view/baseView.php");
 }
+
+function admin(){
+    echo("test");
+}

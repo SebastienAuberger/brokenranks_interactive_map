@@ -44,4 +44,33 @@
                 throw new RangeException("POSX or POSY is out of Range");
             }
         }
+
+        function deleteMarker($id){
+            try{
+                $req = $this->bdd->prepare("DELETE FROM markers WHERE id=:id");
+                $req->bindParam(':id',$id);
+                $req->execute();
+            }catch(PDOException $e){
+                echo("ERREUR: " . $e->getMessage());
+            }
+        }
+
+        function modifyMarker($id,$posX,$posY,$popup,$html){
+            if(($posX > -200 && $posX < 200) && ($posY > -200 && $posY < 200)){
+                try{
+                    $req = $this->bdd->prepare("UPDATE `markers` SET `posX`=:posX,`posY`=:posY,`popup`=:popup,`html`=:html WHERE id=:id");
+                    $req->bindParam(':id',$id);
+                    $req->bindParam(':posX',$posX);
+                    $req->bindParam(':posY',$posY);
+                    $req->bindParam(':popup',$popup);
+                    $req->bindParam(':html',$html);
+                    $req->execute();
+                }catch(PDOException $e){
+                    echo("ERREUR: " . $e->getMessage());
+                }
+            }
+            else{
+                throw new RangeException("POSX or POSY is out of Range");
+            }
+        }
     }

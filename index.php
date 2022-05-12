@@ -5,6 +5,9 @@ if(isset($_GET['page']) && $_GET['page'] != ""){
         case 'map':
             mapView();
             break;
+        case 'admin':
+            admin();
+            break;
         default:
             mapView();
             break;
