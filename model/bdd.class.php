@@ -15,4 +15,10 @@
                 echo "Problème lors de la connexion à la base de données -> " . $e->getMessage();
             }
         }
+
+        function getMarkers(){
+            $req = $this->bdd->prepare("SELECT * FROM `markers`");
+            $req->execute();
+            return $req;
+        }
     }

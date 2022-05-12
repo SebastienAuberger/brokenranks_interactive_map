@@ -27,21 +27,11 @@ hideButton.addEventListener('click',() => {
     }
 })
 
-map.addMarker(25,0);
-map.addMarker(20,0);
-map.addMarker(15,0);
-map.addMarker(10,0);
-map.addMarker(5,0);
-map.addMarker(15,5);
-map.addMarker(15,10);
-map.addMarker(15,-5);
-map.addMarker(15,-10);
-map.displayMarkers();
-map.addMarkerPopup(2,`
-    <h1>test</h1><hr>
-    <p>Bonjour</p>
-`);
-
+map.getAllMarkers();
+//map.addMarker(25,0);
+//map.addMarker(20,0);
+//map.addMarker(15,0);
+map.displayMarkers()
 /* INTERACTIVE MENU TO ADD MARKER (IMPLEMENTATION LATER)
 
 MapContainer.addEventListener('mousemove', (event) =>{

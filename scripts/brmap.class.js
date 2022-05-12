@@ -20,13 +20,6 @@ class BRMap {
              }).addTo(this.map);
     }
 
-   /* initMap(){
-        var marker = L.marker([-92, 180]).addTo(map);
-        var marker2 = L.marker([92, -180]).addTo(map);
-        marker2.bindPopup("Top left map");
-        marker.bindPopup("Bottom right map");
-    }*/
-
     addMarker(posX,posY){
         if(!isNaN(posX) && !isNaN(posY)){
             this.Markers.push(L.marker([posX, posY]))
@@ -35,6 +28,30 @@ class BRMap {
 
     addMarkerPopup(id,html){
         this.Markers[id].bindPopup(html);
+    }
+
+    getAllMarkers(){
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = () => {
+            if(req.readyState === XMLHttpRequest.DONE){
+                if(req.status === 200){
+                    let jsRes = JSON.parse(req.responseText);
+                    console.log(jsRes)
+                    jsRes.forEach(element => {
+                        console.log(element.posX);
+                        if(element.popup == "1"){
+                            this.Markers.push(L.marker([element.posX, element.posY]).bindPopup(element.html))
+                        }
+                        else{
+                            this.Markers.push(L.marker([element.posX, element.posY]))
+                        }
+                    });
+                    this.displayMarkers()
+                }
+            }
+        }
+        req.open("get","model/getMarkers.php");
+        req.send();
     }
 
     displayMarkers(){
